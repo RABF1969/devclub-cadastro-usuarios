@@ -8,7 +8,7 @@ import {
   Button,
   ImputLabel,
 } from "./styles";
-import UsersImage from "./assets/users.png";
+import UsersImage from "../../assets/users.png";
 function Home() {
   return (
     <Container>
