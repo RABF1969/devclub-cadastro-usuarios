@@ -7,11 +7,11 @@ import {
   TopBackground,
   Form,
   ContainerInputs,
-  Input,
-  Button,
+  Input, 
   ImputLabel,
 } from "./styles";
 import UsersImage from "../../assets/users.png";
+import Button from "../../components/Button";
 function Home() {
 const inputName = useRef();
 const inputAge = useRef();
