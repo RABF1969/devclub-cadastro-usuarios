@@ -10,23 +10,7 @@ padding: 20px;
 height: 100vh;
 `;
 
-export const TopBackground = styled.div`
-background: linear-gradient(to right, #fe7e5d, #7f3841);
-height: 30vh;
-width: 90vw;
-max-width: 800px;
-border-radius: 30px;
 
-display: flex;
-justify-content: center;
-align-items: center;
-
-img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 30px;
-}
-`;
 
 export const Form = styled.form`
 display: flex;
@@ -68,23 +52,6 @@ span {
 }
 `;
 
-export const Button = styled.button`
-border: none;
-background: linear-gradient(180deg, #FE7E5D, #FF6378 100%);
-font-size: 16px;
-padding: 16px 32px;
-width: fit-content;
-border-radius: 30px;
-cursor: pointer;
 
-&:hover {
-  opacity: 0.8;
-}
-
-&:active {
-  opacity: 0.5;
-}   
-
-`;
 
 

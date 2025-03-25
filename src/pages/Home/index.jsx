@@ -4,34 +4,30 @@ import api from "../../services/api";
 import {
   Title,
   Container,
-  TopBackground,
   Form,
   ContainerInputs,
   Input,
-  Button,
   ImputLabel,
 } from "./styles";
-import UsersImage from "../../assets/users.png";
+
+import Button from "../../components/Button";
+import TopBackground from "../../components/TopBackground";
 function Home() {
-const inputName = useRef();
-const inputAge = useRef();
-const inputEmail = useRef();
+  const inputName = useRef();
+  const inputAge = useRef();
+  const inputEmail = useRef();
 
-async function registerNewUser() {
- await api.post("/usuarios", {
-    name: inputName.current.value,
-    age: parseInt(inputAge.current.value),
-    email: inputEmail.current.value,
-  });
-  
-}
-
+  async function registerNewUser() {
+    await api.post("/usuarios", {
+      name: inputName.current.value,
+      age: parseInt(inputAge.current.value),
+      email: inputEmail.current.value,
+    });
+  }
 
   return (
     <Container>
-      <TopBackground>
-        <img src={UsersImage} alt="Imagem-de-usuários" />
-      </TopBackground>
+      <TopBackground />
 
       <Form>
         <Title>Cadastrar Usuário</Title>
@@ -48,7 +44,11 @@ async function registerNewUser() {
             <ImputLabel>
               Idade<span> *</span>
             </ImputLabel>
-            <Input type="number" placeholder="Idade do Usuário" ref={inputAge} />
+            <Input
+              type="number"
+              placeholder="Idade do Usuário"
+              ref={inputAge}
+            />
           </div>
         </ContainerInputs>
 
@@ -59,8 +59,12 @@ async function registerNewUser() {
           <Input type="email" placeholder="Email do Usuário" ref={inputEmail} />
         </div>
 
-        <Button type="button" onClick={registerNewUser}>Cadastrar Usuário</Button>
+        <Button type="button" onClick={registerNewUser} theme="primary">
+          Cadastrar Usuário
+        </Button>
       </Form>
+
+      <Button type="button">Ver Lista de Usuário</Button>
     </Container>
   );
 }
