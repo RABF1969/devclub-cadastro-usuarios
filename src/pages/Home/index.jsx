@@ -6,20 +6,12 @@ import {
   Container,
   Form,
   ContainerInputs,
-<<<<<<< HEAD
   Input,
   ImputLabel,
 } from "./styles";
 
 import Button from "../../components/Button";
 import TopBackground from "../../components/TopBackground";
-=======
-  Input, 
-  ImputLabel,
-} from "./styles";
-import UsersImage from "../../assets/users.png";
-import Button from "../../components/Button";
->>>>>>> ceec55307ed5bbbc402a9505ffb51bd7f36ebd2d
 function Home() {
   const inputName = useRef();
   const inputAge = useRef();
