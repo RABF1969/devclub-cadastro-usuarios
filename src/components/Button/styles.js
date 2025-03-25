@@ -15,6 +15,10 @@ cursor: pointer;
 
 &:hover {
   opacity: 0.8;
+  color: ${(props) => (props.theme === "primary" ? "" : "#000")};
+  background: ${(props) =>
+      props.theme === "primary" ? "" : "#d2dae2"};
+    border-color: ${(props) => (props.theme === "primary" ? "" : "#fff")};
 }
 
 &:active {
