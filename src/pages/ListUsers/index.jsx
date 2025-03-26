@@ -1,28 +1,47 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import api from "../../services/api";
 import Button from "../../components/Button";
 import TopBackground from "../../components/TopBackground";
+import Trash from "../../assets/trash.svg";
+import {
+  Container,
+  Title,
+  ContainerUsers,
+  CardUsers,
+  TrashIcon,
+} from "./styles";
 
 function ListUsers() {
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     // função que vai buscar os usuários do banco de dados
     // e vai renderizar na tela
     async function getUsers() {
-      const usersFromApi = await api.get("/usuarios")
-      console.log(usersFromApi.data)
+      const { data } = await api.get("/usuarios");
+      setUsers(data);
     }
-    getUsers();       
-  }, [])
-
-
+    getUsers();
+  }, []);
 
   return (
-    <div>
+    <Container>
       <TopBackground />
-      <h1>Lista de Usuários</h1>
-      <Button>Voltar</Button>
-    </div>
+      <Title>Lista de Usuários</Title>
+      <ContainerUsers>
+        {users.map((user) => (
+          <CardUsers key={user.id}>
+            <div>
+              <p>{user.name}</p>
+              <p>{user.email}</p>
+              <p>{user.age}</p>
+            </div>
+            <TrashIcon src={Trash} alt="Icone-de-lixeira" />
+          </CardUsers>
+        ))}
+      </ContainerUsers>
+      <Button type="button">Voltar</Button>
+    </Container>
   );
 }
 
