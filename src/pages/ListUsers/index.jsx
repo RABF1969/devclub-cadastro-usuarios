@@ -9,10 +9,13 @@ import {
   ContainerUsers,
   CardUsers,
   TrashIcon,
+  AvatarUser,
 } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 function ListUsers() {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // função que vai buscar os usuários do banco de dados
@@ -31,16 +34,20 @@ function ListUsers() {
       <ContainerUsers>
         {users.map((user) => (
           <CardUsers key={user.id}>
+            <AvatarUser
+              src={`https://avatar.iran.liara.run/public?username=${user.id}`}
+              alt="Avatar"
+            />
             <div>
-              <p>{user.name}</p>
-              <p>{user.email}</p>
+              <h3>{user.name}</h3>
               <p>{user.age}</p>
+              <p>{user.email}</p>
             </div>
             <TrashIcon src={Trash} alt="Icone-de-lixeira" />
           </CardUsers>
         ))}
       </ContainerUsers>
-      <Button type="button">Voltar</Button>
+      <Button type="button" onClick={() => navigate ("/")}>Voltar</Button>
     </Container>
   );
 }
