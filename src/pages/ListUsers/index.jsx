@@ -27,6 +27,14 @@ function ListUsers() {
     getUsers();
   }, []);
 
+async function deleteUsers(id) {
+  await api.delete(`/usuarios/${id}`);  
+ 
+  const updateUsers = users.filter((user) => user.id !== id);
+  setUsers(updateUsers);
+  
+}
+
   return (
     <Container>
       <TopBackground />
@@ -43,7 +51,7 @@ function ListUsers() {
               <p>{user.age}</p>
               <p>{user.email}</p>
             </div>
-            <TrashIcon src={Trash} alt="Icone-de-lixeira" />
+            <TrashIcon src={Trash} alt="Icone-de-lixeira" onClick={() => deleteUsers(user.id)}/>
           </CardUsers>
         ))}
       </ContainerUsers>

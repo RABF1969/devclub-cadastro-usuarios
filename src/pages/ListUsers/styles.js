@@ -8,7 +8,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-evenly;
-paddding: 20px;
+padding: 20px;
 `
 
 export const Title = Styled.h2`
